@@ -1,17 +1,93 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Example</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags-->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<head>
+  <title>Plant Tracker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `script` tags-->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body>
-      <h1>Browser Template</h1>
-    </body>
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body>
+
+  <h1>Plant Tracker</h1>
+
+  <p id='message'></p>
+
+  <div class="unauthenticated">
+
+    <form id="sign-in">
+      <input name="credentials[email]" type="text" placeholder="email" />
+      <input name="credentials[password]" type="password" placeholder="password" />
+      <button type="submit">Sign In</button>
+    </form>
+
+    <form id="sign-up">
+      <input name="credentials[email]" type="text" placeholder="email" />
+      <input name="credentials[password]" type="password" placeholder="pick a password" />
+      <input name="credentials[password_confirmation]" type="password" placeholder="confirm password" />
+      <button type="submit">Sign Up</button>
+    </form>
+
+  </div>
+
+  <div class="authenticated">
+    <div class="user">
+
+      <button id="sign-out" type="submit">Sign Out</button>
+
+      <form id="change-password" data-status="0">
+        <input name="passwords[old]" type="password" placeholder="old password" />
+        <input name="passwords[new]" type="password" placeholder="new password" />
+        <button type="submit">Submit</button>
+      </form>
+
+    </div>
+
+    <div class="plant">
+
+      <button id="index-plants" type="submit">All Plants</button>
+
+      <form id="find-plant" data-status="0">
+        <input name="plant[id]" type="text" placeholder="plant id" />
+        <button type="submit">Find Plant</button>
+      </form>
+
+      <form id="add-plant" data-status="0">
+        <input name="plant[type]" type="text" placeholder="type" />
+        <input name="plant[stage]" type="text" placeholder="stage" />
+        <input name="plant[light]" type="text" placeholder="light needs" />
+        <input name="plant[water]" type="text" placeholder="water needs" />
+        <input name="plant[soil]" type="text" placeholder="soil needs" />
+        <button type="submit">Add Plant</button>
+      </form>
+
+      <form id="update-plant" data-status="0">
+        <input name="credentials[id]" type="text" placeholder="plant id" />
+        <input name="plant[type]" type="text" placeholder="type" />
+        <input name="plant[stage]" type="text" placeholder="stage" />
+        <input name="plant[light]" type="text" placeholder="light needs" />
+        <input name="plant[water]" type="text" placeholder="water needs" />
+        <input name="plant[soil]" type="text" placeholder="soil needs" />
+        <button type="submit">Update Plant</button>
+      </form>
+
+      <form id="delete-plant" data-status="0">
+        <input name="plant[id]" type="text" placeholder="plant id" />
+        <button type="submit">Delete Plant</button>
+      </form>
+
+      <p id='plant-data-messages'></p>
+
+    </div>
+
+  </div>
+
+</body>
+
 </html>
