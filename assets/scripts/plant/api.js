@@ -40,7 +40,7 @@ const addPlant = function (plantData) {
   })
 }
 
-// CREATE plant
+// UPDATE plant
 // PATCH
 const updatePlant = function (plantId, plantData) {
   return $.ajax({

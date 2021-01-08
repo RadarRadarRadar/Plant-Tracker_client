@@ -34,12 +34,17 @@ const onAddPlant = function (event) {
 
 const onUpdatePlant = function (event) {
   event.preventDefault()
+
   const form = event.target
   const plantUpdateData = getFormFields(form)
+
   const plantData = plantUpdateData.plant
   const plantId = plantUpdateData.credentials.id
+
+  console.log(plantUpdateData)
   console.log(plantUpdateData.plant)
   console.log(plantUpdateData.credentials.id)
+
   api.updatePlant(plantId, plantData)
     .then(ui.updatePlantSuccess)
     .catch(ui.updatePlantFailure)
