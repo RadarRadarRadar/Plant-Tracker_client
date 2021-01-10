@@ -13,6 +13,8 @@ const signUpFailure = function (onError) {
 const signInSuccess = function (response) {
   $('#message').text('Sign In Successfully!')
   store.user = response.user
+  $('#auth-nav').hide()
+  $('#plant-nav').show()
   $('.unauthenticated').hide()
   $('.authenticated').show()
   $('form').trigger('reset')
@@ -30,9 +32,11 @@ const changePasswordFailure = function (onError) {
 }
 
 const signOutSuccess = function () {
-  $('#message').text('Change password success!')
+  $('#message').text('You have been signed out.')
   $('.authenticated').hide()
   $('.unauthenticated').show()
+  $('#sign-in').hide()
+  $('#sign-up').hide()
   store.user = null
   $('form').trigger('reset')
 }

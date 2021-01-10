@@ -1,6 +1,7 @@
 'use strict'
 // Required files
 const store = require('./../store')
+const htmlFormatter = require('./plantCards')
 
 // function htmlFormatter ([key, value]) {
 //   let plantTypeHTML = ''
@@ -33,23 +34,11 @@ const indexPlantsSuccess = function (response) {
   console.log(store.plants)
   const plantIndex = store.plants
   const plantIndexReverse = plantIndex.reverse()
-  let plantHTML = ''
+  $('#plant-data').html('')
   plantIndexReverse.forEach(function (plant) {
-    Object.entries(plant).forEach(([key, value]) => {
-      if (key === 'type') {
-        const plantInfoHTML = (`<div class="col-6 plant-display"><p>${key}: ${value}</p>`)
-        plantHTML += plantInfoHTML
-      } else if (key === 'owner') {
-        const plantInfoHTML = (`<p>${key}: ${value.email}</p></div><br>`)
-        plantHTML += plantInfoHTML
-      } else if (key !== 'createdAt' && key !== '__v' && key !== 'updatedAt' && key !== '_id') {
-        const plantInfoHTML = (`<li>${key}: ${value}</li>`)
-        plantHTML += plantInfoHTML
-      }
-    })
+    htmlFormatter(plant)
   })
-  $('#plant-data-messages').text('Plants!')
-  $('#plant-data').html(plantHTML)
+  // $('#plant-data-messages').text('Plants!')
   $('form').trigger('reset')
 }
 
@@ -61,46 +50,9 @@ const findPlantSuccess = function (response) {
   store.plant = response.plant
   console.log(store.plant)
   const plant = store.plant
-  let plantHTML = ''
-  for (const [key, value] of Object.entries(plant)) {
-    if (key === 'type') {
-      const plantInfoHTML = (`<div class="col-6 plant-display"><p>${key}: ${value}</p>`)
-      plantHTML += plantInfoHTML
-    } else if (key === 'owner') {
-      const plantInfoHTML = (`<p>${key}: ${value.email}</p></div>`)
-      plantHTML += plantInfoHTML
-    } else if (key !== 'createdAt' && key !== '__v' && key !== 'updatedAt' && key !== '_id') {
-      const plantInfoHTML = (`<li>${key}: ${value}</li>`)
-      plantHTML += plantInfoHTML
-    }
-  }
-  // Object.entries(plant).forEach(([key, value]) => {
-  //   let plantTypeHTML = ''
-  //   let plantHTML = ''
-  //   let plantOwnerHTML = ''
-  //   if (key === 'type') {
-  //     const plantInfoHTML = (`${key}: ${value}`)
-  //     plantTypeHTML += plantInfoHTML
-  //   } else if (key === 'owner') {
-  //     const plantInfoHTML = (`${key}: ${value.email}`)
-  //     plantOwnerHTML += plantInfoHTML
-  //   } else if (key !== 'createdAt' && key !== '__v' && key !== 'updatedAt' && key !== '_id') {
-  //     const plantInfoHTML = (`<li>${key}: ${value}</li>`)
-  //     plantHTML += plantInfoHTML
-  //   }
-  //   const plantHTMLData = (`
-  //     <div class="col-6 plant-display">
-  //       <p>${plantTypeHTML}</p>
-  //       <ul>
-  //         ${plantHTML}
-  //       </ul>
-  //       <p>${plantOwnerHTML}</p>
-  //     </div>
-  //     `)
-  //   $('#plant-data').append(plantHTMLData)
-  // })
-  $('#plant-data-messages').text('Plant found!')
-  $('#plant-data').html(plantHTML)
+  $('#plant-data').html('')
+  htmlFormatter(plant)
+  // $('#plant-data-messages').text('Plant found!')
   $('form').trigger('reset')
 }
 

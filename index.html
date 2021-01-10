@@ -15,82 +15,91 @@
 
 <body>
 
-  <nav class="navbar navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Sea of Green</a>
-      <a class="navbar-brand" href="#">Sign Up</a>
-      <a class="navbar-brand" href="#">Sign In</a>
+      <div class="collapse navbar-collapse">
+        <div class="navbar-nav unauthenticated">
+          <a class="nav-link" id="sign-in-form" href="#">Sign In</a>
+          <a class="nav-link" id="sign-up-form" href="#">Sign Up</a>
+        </div>
+        <div class="navbar-nav authenticated">
+          <a class="nav-link" id="index-plants" href="#">Show All Plants</a>
+          <a class="nav-link" id="add-plant-form" href="#">Add a Plant</a>
+          <a class="nav-link" id="find-plant-form" href="#">Find a Plant</a>
+          <a class="nav-link" id="update-plant-form" href="#">Update a Plant</a>
+          <a class="nav-link" id="delete-plant-form" href="#">Delete a Plant</a>
+          <a class="nav-link" id="user-settings-form" href="#">User Settings</a>
+          <button id="sign-out" type="submit" class="btn btn-success">Sign Out</button>
+        </div>
+      </div>
     </div>
   </nav>
 
   <p id='message'></p>
 
-  <div class="unauthenticated">
-
-    <form id="sign-in">
-      <input name="credentials[email]" type="text" placeholder="email" />
-      <input name="credentials[password]" type="password" placeholder="password" />
-      <button type="submit">Sign In</button>
-    </form>
-
-    <form id="sign-up">
-      <input name="credentials[email]" type="text" placeholder="email" />
-      <input name="credentials[password]" type="password" placeholder="pick a password" />
-      <input name="credentials[password_confirmation]" type="password" placeholder="confirm password" />
-      <button type="submit">Sign Up</button>
-    </form>
-
-  </div>
-
-  <div class="authenticated">
-    <div class="user">
-
-      <button id="sign-out" type="submit">Sign Out</button>
-
-      <form id="change-password" data-status="0">
-        <input name="passwords[old]" type="password" placeholder="old password" />
-        <input name="passwords[new]" type="password" placeholder="new password" />
-        <button type="submit">Submit</button>
+  <div class="unauthenticated container-fluid">
+    <div class="row justify-content-md-center">
+      <form id="sign-in">
+        <input name="credentials[email]" class="form-control me-2 col" type="text" placeholder="email" />
+        <input name="credentials[password]" class="form-control me-2 col" type="password" placeholder="password" />
+        <button type="submit" class="btn btn-success col">Sign In</button>
       </form>
-
     </div>
 
-    <div class="plant">
+    <div class="row justify-content-md-center">
+      <form id="sign-up">
+        <input name="credentials[email]" class="form-control me-2 col" type="text" placeholder="email" />
+        <input name="credentials[password]" class="form-control me-2 col" type="password" placeholder="pick a password" />
+        <input name="credentials[password_confirmation]" class="form-control me-2 col" type="password" placeholder="confirm password" />
+        <button type="submit" class="btn btn-success col">Sign Up</button>
+      </form>
+    </div>
+  </div>
 
-      <button id="index-plants" type="submit">All Plants</button>
+  <div class="authenticated container-fluid">
+    <div class="user row justify-content-md-center">
+      <form id="change-password" data-status="0">
+        <input name="passwords[old]" type="password" placeholder="old password" class="form-control me-2 col" />
+        <input name="passwords[new]" type="password" placeholder="new password" class="form-control me-2 col" />
+        <button type="submit" class="btn btn-success form-control me-2 col">Submit</button>
+      </form>
+    </div>
 
+    <div class="plant row justify-content-md-center">
+      <!-- <button id="index-plants" type="submit" class="btn btn-success">All Plants</button> -->
       <form id="find-plant" data-status="0">
-        <input name="plant[id]" type="text" placeholder="plant id" />
-        <button type="submit">Find Plant</button>
+        <input name="plant[id]" type="text" placeholder="plant id" class="form-control me-2 col"/>
+        <button type="submit" class="btn btn-success form-control me-2 col">Find Plant</button>
       </form>
 
       <form id="add-plant" data-status="0">
-        <input name="plant[type]" type="text" placeholder="type" />
-        <input name="plant[stage]" type="text" placeholder="stage" />
-        <input name="plant[light]" type="text" placeholder="light needs" />
-        <input name="plant[water]" type="text" placeholder="water needs" />
-        <input name="plant[soil]" type="text" placeholder="soil needs" />
-        <button type="submit">Add Plant</button>
+        <input name="plant[type]" class="form-control me-2 col" type="text" placeholder="type" />
+        <input name="plant[stage]" class="form-control me-2 col" type="text" placeholder="stage" />
+        <input name="plant[light]" class="form-control me-2 col" type="text" placeholder="light needs" />
+        <input name="plant[water]" class="form-control me-2 col" type="text" placeholder="water needs" />
+        <input name="plant[soil]" class="form-control me-2 col" type="text" placeholder="soil needs" />
+        <button type="submit" class="btn btn-success form-control me-2 col">Add Plant</button>
       </form>
 
       <form id="update-plant" data-status="0">
-        <input name="credentials[id]" type="text" placeholder="plant id" />
-        <input name="plant[type]" type="text" placeholder="type" />
-        <input name="plant[stage]" type="text" placeholder="stage" />
-        <input name="plant[light]" type="text" placeholder="light needs" />
-        <input name="plant[water]" type="text" placeholder="water needs" />
-        <input name="plant[soil]" type="text" placeholder="soil needs" />
-        <button type="submit">Update Plant</button>
+        <input name="credentials[id]" class="form-control me-2 col" type="text" placeholder="plant id" />
+        <input name="plant[type]" class="form-control me-2 col" type="text" placeholder="type" />
+        <input name="plant[stage]" class="form-control me-2 col" type="text" placeholder="stage" />
+        <input name="plant[light]" class="form-control me-2 col" type="text" placeholder="light needs" />
+        <input name="plant[water]" class="form-control me-2 col" type="text" placeholder="water needs" />
+        <input name="plant[soil]" class="form-control me-2 col" type="text" placeholder="soil needs" />
+        <button type="submit" class="btn btn-success form-control me-2 col">Update Plant</button>
       </form>
 
       <form id="delete-plant" data-status="0">
-        <input name="plant[id]" type="text" placeholder="plant id" />
-        <button type="submit">Delete Plant</button>
+        <input name="plant[id]" class="form-control me-2 col" type="text" placeholder="plant id" />
+        <button type="submit" class="btn btn-success form-control me-2 col">Delete Plant</button>
       </form>
 
       <p id='plant-data-messages'></p>
       <div class="container">
-        <div class="row" id='plant-data'>
+        <div class="row justify-content-md-center" id='plant-data'>
           <!-- <div class="col-4" id='plant-data'></div> -->
         </div>
       </div>
