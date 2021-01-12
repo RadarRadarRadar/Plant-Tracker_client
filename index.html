@@ -15,47 +15,56 @@
 
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Sea of Green</a>
-      <div class="collapse navbar-collapse">
-        <div class="navbar-nav unauthenticated">
-          <a class="nav-link" id="sign-in-form" href="#">Sign In</a>
-          <a class="nav-link" id="sign-up-form" href="#">Sign Up</a>
+  <div class="splash-container unauthenticated">
+    <div class="splash-box">
+      <div class="splash-auth">
+        <h5 class="splash-logo">SOG</h5>
+        <a id="sign-in-form" href="#">
+          <h5 class="splash-sign-in">Sign In</h5>
+        </a>
+        <div class="unauthenticated container-fluid">
+          <div class="row justify-content-md-center">
+            <form id="sign-in">
+              <input name="credentials[email]" class="form-control me-2 col" type="text" placeholder="email" />
+              <input name="credentials[password]" class="form-control me-2 col" type="password" placeholder="password" />
+              <button type="submit" class="btn btn-success col">Confirm Sign In</button>
+            </form>
+          </div>
         </div>
-        <div class="navbar-nav authenticated">
-          <a class="nav-link" id="index-plants" href="#">Show All Plants</a>
-          <a class="nav-link" id="add-plant-form" href="#">Add a Plant</a>
-          <a class="nav-link" id="find-plant-form" href="#">Find a Plant</a>
-          <a class="nav-link" id="update-plant-form" href="#">Update a Plant</a>
-          <a class="nav-link" id="delete-plant-form" href="#">Delete a Plant</a>
-          <a class="nav-link" id="user-settings-form" href="#">User Settings</a>
-          <button id="sign-out" type="submit" class="btn btn-success">Sign Out</button>
+        <a id="sign-up-form" href="#">
+          <h5 class="splash-sign-up">Sign Up</h5>
+        </a>
+        <div class="unauthenticated container-fluid">
+          <div class="row justify-content-md-center">
+            <form id="sign-up">
+              <input name="credentials[email]" class="form-control me-4 col" type="text" placeholder="email" />
+              <input name="credentials[password]" class="form-control me-4 col" type="password" placeholder="pick a password" />
+              <input name="credentials[password_confirmation]" class="form-control me-4 col" type="password" placeholder="confirm password" />
+              <button type="submit" class="btn btn-success col">Confirm Sign Up</button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
-  </nav>
+  </div>
+  <div class="nav container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light authenticated">
+      <a class="navbar-brand" href="#">Sea of Green</a>
+      <div class="collapse navbar-collapse">
+        <div class="navbar-nav ml-auto">
+        <a class="nav-link" id="index-plants" href="#">Show Plants</a>
+        <a class="nav-link" id="find-plant-form" href="#">Find Plant</a>
+        <a class="nav-link" id="add-plant-form" href="#">Add Plant</a>
+        <a class="nav-link" id="update-plant-form" href="#">Update Plant</a>
+        <a class="nav-link" id="delete-plant-form" href="#">Delete Plant</a>
+        <a class="nav-link" id="user-settings-form" href="#">User Settings</a>
+        <button id="sign-out" type="submit" class="btn btn-success">Sign Out</button>
+      </div>
+      </div>
+    </nav>
+  </div>
 
   <p id='message'></p>
-
-  <div class="unauthenticated container-fluid">
-    <div class="row justify-content-md-center">
-      <form id="sign-in">
-        <input name="credentials[email]" class="form-control me-2 col" type="text" placeholder="email" />
-        <input name="credentials[password]" class="form-control me-2 col" type="password" placeholder="password" />
-        <button type="submit" class="btn btn-success col">Sign In</button>
-      </form>
-    </div>
-
-    <div class="row justify-content-md-center">
-      <form id="sign-up">
-        <input name="credentials[email]" class="form-control me-2 col" type="text" placeholder="email" />
-        <input name="credentials[password]" class="form-control me-2 col" type="password" placeholder="pick a password" />
-        <input name="credentials[password_confirmation]" class="form-control me-2 col" type="password" placeholder="confirm password" />
-        <button type="submit" class="btn btn-success col">Sign Up</button>
-      </form>
-    </div>
-  </div>
 
   <div class="authenticated container-fluid">
     <div class="user row justify-content-md-center">
@@ -69,7 +78,7 @@
     <div class="plant row justify-content-md-center">
       <!-- <button id="index-plants" type="submit" class="btn btn-success">All Plants</button> -->
       <form id="find-plant" data-status="0">
-        <input name="plant[id]" type="text" placeholder="plant id" class="form-control me-2 col"/>
+        <input name="plant[id]" type="text" placeholder="plant id" class="form-control me-2 col" />
         <button type="submit" class="btn btn-success form-control me-2 col">Find Plant</button>
       </form>
 
@@ -99,8 +108,7 @@
 
       <p id='plant-data-messages'></p>
       <div class="container">
-        <div class="row justify-content-md-center" id='plant-data'>
-          <!-- <div class="col-4" id='plant-data'></div> -->
+        <div class="row justify-content-md-start" id='plant-data'>
         </div>
       </div>
 

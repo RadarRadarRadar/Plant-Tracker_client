@@ -1,5 +1,23 @@
 @import '~bootstrap/scss/bootstrap';
 
-.plant-display {
-  border: 2px solid #000000;
+.splash-container {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 100px;
+}
+
+.splash-box {
+  width: 50%;
+  border: 2px solid green;
+  margin: auto;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.splash-logo {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid gray;
 }
