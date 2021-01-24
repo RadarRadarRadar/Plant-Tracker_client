@@ -7,11 +7,12 @@ const signUpSuccess = function (response) {
   $('form').trigger('reset')
 }
 const signUpFailure = function (onError) {
-  $('#message').text('Sign Up Failed')
+  $('#unauth-message').text('Sign Up Failed')
 }
 
 const signInSuccess = function (response) {
-  $('#message').text('Sign In Successfully!')
+  $('#message').text('Sign In Success')
+  // $('#message').delay(1000).text('')
   store.user = response.user
   $('#auth-nav').hide()
   $('#plant-nav').show()
@@ -20,7 +21,7 @@ const signInSuccess = function (response) {
   $('form').trigger('reset')
 }
 const signInFailure = function (onError) {
-  $('#message').text('Sign In Failed')
+  $('#unauth-message').text('Sign In Failed')
 }
 
 const changePasswordSuccess = function () {
@@ -32,7 +33,7 @@ const changePasswordFailure = function (onError) {
 }
 
 const signOutSuccess = function () {
-  $('#message').text('You have been signed out.')
+  $('#unauth-message').text('You have been signed out.')
   $('.authenticated').hide()
   $('.unauthenticated').show()
   $('#sign-in').hide()
@@ -41,7 +42,7 @@ const signOutSuccess = function () {
   $('form').trigger('reset')
 }
 const signOutFailure = function (onError) {
-  $('#message').text('Change Password Failed')
+  $('#message').text('Sign Out Failed')
 }
 
 module.exports = {

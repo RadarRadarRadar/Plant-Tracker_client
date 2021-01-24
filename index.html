@@ -18,7 +18,10 @@
   <div class="splash-container unauthenticated">
     <div class="splash-box">
       <div class="splash-auth">
-        <h5 class="splash-logo">SOG</h5>
+        <h5 class="splash-logo">Sea of Green - Plant Tracker</h5>
+        <div class="row justify-content-md-center">
+          <div id="unauth-message"></div>
+        </div>
         <a id="sign-in-form" href="#">
           <h5 class="splash-sign-in">Sign In</h5>
         </a>
@@ -64,9 +67,13 @@
     </nav>
   </div>
 
-  <p id='message'></p>
-
   <div class="authenticated container-fluid">
+    <div class="row justify-content-md-center">
+      <div id="message"></div>
+    </div>
+    <div class="row justify-content-md-center">
+      <div id="plant-data-messages"></div>
+    </div>
     <div class="user row justify-content-md-center">
       <form id="change-password" data-status="0">
         <input name="passwords[old]" type="password" placeholder="old password" class="form-control me-2 col" />
@@ -106,10 +113,9 @@
         <button type="submit" class="btn btn-success form-control me-2 col">Delete Plant</button>
       </form>
 
-      <p id='plant-data-messages'></p>
+
       <div class="container">
-        <div class="row justify-content-md-start" id='plant-data'>
-        </div>
+        <div class="row justify-content-md-start" id='plant-data'></div>
       </div>
 
     </div>

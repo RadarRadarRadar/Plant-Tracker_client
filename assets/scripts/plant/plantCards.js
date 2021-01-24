@@ -9,7 +9,7 @@ function htmlFormatter (plant) {
       plantType = (`${key}: ${value}`)
     } else if (key === 'owner') {
       plantOwner = (`${key}: ${value.email}`)
-    } else if (key !== 'createdAt' && key !== '__v' && key !== 'updatedAt' && key !== '_id') {
+    } else if (key !== 'createdAt' && key !== '__v' && key !== 'updatedAt') {
       const plantIndexData = (`<li>${key}: ${value}</li>\n`)
       plantData += plantIndexData
     }
