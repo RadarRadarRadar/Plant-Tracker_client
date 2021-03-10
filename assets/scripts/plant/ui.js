@@ -10,6 +10,7 @@ const indexPlantsSuccess = function (response) {
   const plantIndexReverse = plantIndex.reverse()
   $('#plant-data').html('')
   plantIndexReverse.forEach(function (plant) {
+    console.log(plant)
     htmlFormatter(plant)
   })
   // $('#plant-data-messages').text('Plants!')

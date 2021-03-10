@@ -1,23 +1,60 @@
 @import '~bootstrap/scss/bootstrap';
 
+a {
+  color: #6c584c;
+}
+
+body {
+  background: rgb(240,234,210);
+  background: linear-gradient(180deg, rgba(240,234,210,1) 25%, rgba(173,193,120,1) 75%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100vh;
+}
+
+.card {
+  background-color: #DDE5B6;
+}
+
+.card-header {
+  background-color: #f0ead2;
+}
+
+.card-body {
+  background-color: #DDE5B6;
+}
+
+.card-footer {
+  background-color: #A98467;
+}
+
+.navbar {
+  background-color: #f0ead2;
+}
+
 .splash-container {
-  display: flex;
   align-self: center;
+  background-image: url('/assets/styles/plant-image.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  height: 100vh;
   justify-content: center;
   text-align: center;
-  margin-top: 100px;
 }
 
 .splash-box {
-  width: 50%;
-  border: 2px solid green;
+  background-color: #F0ead2;
+  border: 2px solid #F0ead2;
+  border-radius: 6px;
   margin: auto;
   padding: 10px;
-  border-radius: 6px;
+  width: 50%;
 }
 
 .splash-logo {
+  border-bottom: 1px solid gray;
   margin-bottom: 10px;
   padding-bottom: 10px;
-  border-bottom: 1px solid gray;
 }

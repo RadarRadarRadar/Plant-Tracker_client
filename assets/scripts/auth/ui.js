@@ -11,7 +11,7 @@ const signUpFailure = function (onError) {
 }
 
 const signInSuccess = function (response) {
-  $('#message').text('Sign In Success')
+  $('#message').html('Sign In Success')
   // $('#message').delay(1000).text('')
   store.user = response.user
   $('#auth-nav').hide()

@@ -14,7 +14,6 @@
 </head>
 
 <body>
-
   <div class="splash-container unauthenticated">
     <div class="splash-box">
       <div class="splash-auth">
@@ -50,11 +49,15 @@
       </div>
     </div>
   </div>
-  <div class="nav container">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light authenticated">
-      <a class="navbar-brand" href="#">Sea of Green</a>
-      <div class="collapse navbar-collapse">
-        <div class="navbar-nav ml-auto">
+
+  <nav class="navbar navbar-expand-lg authenticated">
+    <a class="navbar-brand" href="#">Sea of Green</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="navbar-nav ml-auto">
         <a class="nav-link" id="index-plants" href="#">Show Plants</a>
         <a class="nav-link" id="find-plant-form" href="#">Find Plant</a>
         <a class="nav-link" id="add-plant-form" href="#">Add Plant</a>
@@ -63,17 +66,19 @@
         <a class="nav-link" id="user-settings-form" href="#">User Settings</a>
         <button id="sign-out" type="submit" class="btn btn-success">Sign Out</button>
       </div>
+    </div>
+  </nav>
+
+  <div class="authenticated container message-container mt-3">
+    <div class="row message-row">
+        <div class="col text-center">
+        <div id="message"></div>
+        <div id="plant-data-messages"></div>
       </div>
-    </nav>
+    </div>
   </div>
 
-  <div class="authenticated container-fluid">
-    <div class="row justify-content-md-center">
-      <div id="message"></div>
-    </div>
-    <div class="row justify-content-md-center">
-      <div id="plant-data-messages"></div>
-    </div>
+  <div class="authenticated container data-container mt-3">
     <div class="user row justify-content-md-center">
       <form id="change-password" data-status="0">
         <input name="passwords[old]" type="password" placeholder="old password" class="form-control me-2 col" />
@@ -83,7 +88,7 @@
     </div>
 
     <div class="plant row justify-content-md-center">
-      <!-- <button id="index-plants" type="submit" class="btn btn-success">All Plants</button> -->
+
       <form id="find-plant" data-status="0">
         <input name="plant[id]" type="text" placeholder="plant id" class="form-control me-2 col" />
         <button type="submit" class="btn btn-success form-control me-2 col">Find Plant</button>
@@ -112,14 +117,9 @@
         <input name="plant[id]" class="form-control me-2 col" type="text" placeholder="plant id" />
         <button type="submit" class="btn btn-success form-control me-2 col">Delete Plant</button>
       </form>
-
-
-      <div class="container">
-        <div class="row justify-content-md-start" id='plant-data'></div>
-      </div>
-
     </div>
 
+    <div class="plant-data-row row justify-content-md-center" id='plant-data'></div>
   </div>
 
 </body>
