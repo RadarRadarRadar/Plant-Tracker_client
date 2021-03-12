@@ -36,11 +36,12 @@ webpackConfig.module.rules.push({
 
 module.exports = {
   options: {
+    host: '0.0.0.0',
     port,
     inline: true, // reload on change
     webpack: webpackConfig,
     publicPath: '/public/',
-    contentBase: [ path.join(__dirname, '/../') ],
+    contentBase: [path.join(__dirname, '/../')],
     watchContentBase: true
   },
 
@@ -53,7 +54,7 @@ module.exports = {
         }),
         new WebpackOnBuildPlugin(function () {
           if (firstBuild) {
-            opn('http://localhost:' + port)
+            // opn('http://localhost:' + port)
           }
           firstBuild = false
         })
