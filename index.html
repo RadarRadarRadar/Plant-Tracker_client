@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Sea of Green</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body>
+  <div class="splash-container unauthenticated">
+    <div class="splash-box">
+      <div class="splash-auth">
+        <h5 class="splash-logo">Sea of Green - Plant Tracker</h5>
+        <div class="row justify-content-md-center">
+          <div id="unauth-message"></div>
+        </div>
+        <a id="sign-in-form" href="#">
+          <h5 class="splash-sign-in">Sign In</h5>
+        </a>
+        <div class="unauthenticated container-fluid">
+          <div class="row justify-content-md-center">
+            <form id="sign-in">
+              <input name="credentials[email]" class="form-control me-2 col" type="text" placeholder="email" />
+              <input name="credentials[password]" class="form-control me-2 col" type="password" placeholder="password" />
+              <button type="submit" class="btn btn-success col">Confirm Sign In</button>
+            </form>
+          </div>
+        </div>
+        <a id="sign-up-form" href="#">
+          <h5 class="splash-sign-up">Sign Up</h5>
+        </a>
+        <div class="unauthenticated container-fluid">
+          <div class="row justify-content-md-center">
+            <form id="sign-up">
+              <input name="credentials[email]" class="form-control me-4 col" type="text" placeholder="email" />
+              <input name="credentials[password]" class="form-control me-4 col" type="password" placeholder="pick a password" />
+              <input name="credentials[password_confirmation]" class="form-control me-4 col" type="password" placeholder="confirm password" />
+              <button type="submit" class="btn btn-success col">Confirm Sign Up</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <nav class="navbar navbar-expand-lg authenticated">
+    <a class="navbar-brand" href="#">Sea of Green</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="navbar-nav ml-auto">
+        <a class="nav-link" id="index-plants" href="#">Show Plants</a>
+        <a class="nav-link" id="find-plant-form" href="#">Find Plant</a>
+        <a class="nav-link" id="add-plant-form" href="#">Add Plant</a>
+        <a class="nav-link" id="update-plant-form" href="#">Update Plant</a>
+        <a class="nav-link" id="delete-plant-form" href="#">Delete Plant</a>
+        <a class="nav-link" id="user-settings-form" href="#">User Settings</a>
+        <button id="sign-out" type="submit" class="btn btn-success">Sign Out</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="authenticated container message-container mt-3">
+    <div class="row message-row">
+        <div class="col text-center">
+        <div id="message"></div>
+        <div id="plant-data-messages"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="authenticated container data-container mt-3">
+    <div class="user row justify-content-md-center">
+      <form id="change-password" data-status="0">
+        <input name="passwords[old]" type="password" placeholder="old password" class="form-control me-2 col" />
+        <input name="passwords[new]" type="password" placeholder="new password" class="form-control me-2 col" />
+        <button type="submit" class="btn btn-success form-control me-2 col">Submit</button>
+      </form>
+    </div>
+
+    <div class="plant row justify-content-md-center">
+
+      <form id="find-plant" data-status="0">
+        <input name="plant[id]" type="text" placeholder="plant id" class="form-control me-2 col" />
+        <button type="submit" class="btn btn-success form-control me-2 col">Find Plant</button>
+      </form>
+
+      <form id="add-plant" data-status="0">
+        <input name="plant[type]" class="form-control me-2 col" type="text" placeholder="type" />
+        <input name="plant[stage]" class="form-control me-2 col" type="text" placeholder="stage" />
+        <input name="plant[light]" class="form-control me-2 col" type="text" placeholder="light needs" />
+        <input name="plant[water]" class="form-control me-2 col" type="text" placeholder="water needs" />
+        <input name="plant[soil]" class="form-control me-2 col" type="text" placeholder="soil needs" />
+        <button type="submit" class="btn btn-success form-control me-2 col">Add Plant</button>
+      </form>
+
+      <form id="update-plant" data-status="0">
+        <input name="credentials[id]" class="form-control me-2 col" type="text" placeholder="plant id" />
+        <input name="plant[type]" class="form-control me-2 col" type="text" placeholder="type" />
+        <input name="plant[stage]" class="form-control me-2 col" type="text" placeholder="stage" />
+        <input name="plant[light]" class="form-control me-2 col" type="text" placeholder="light needs" />
+        <input name="plant[water]" class="form-control me-2 col" type="text" placeholder="water needs" />
+        <input name="plant[soil]" class="form-control me-2 col" type="text" placeholder="soil needs" />
+        <button type="submit" class="btn btn-success form-control me-2 col">Update Plant</button>
+      </form>
+
+      <form id="delete-plant" data-status="0">
+        <input name="plant[id]" class="form-control me-2 col" type="text" placeholder="plant id" />
+        <button type="submit" class="btn btn-success form-control me-2 col">Delete Plant</button>
+      </form>
+    </div>
+
+    <div class="plant-data-row row justify-content-md-center" id='plant-data'></div>
+  </div>
+
+</body>
+
+</html>
